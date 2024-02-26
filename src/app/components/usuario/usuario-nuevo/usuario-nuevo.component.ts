@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-usuario-nuevo',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./usuario-nuevo.component.css']
 })
 export class UsuarioNuevoComponent {
+
+  constructor(private router:ActivatedRoute){
+    this.router.parent?.params.subscribe(parametros => {
+      console.log('ruta HIJA usuario nuevo');
+      console.log(parametros);
+    })
+  }
 
 }
